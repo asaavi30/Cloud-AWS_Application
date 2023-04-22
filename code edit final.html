@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Calculator</title>
+	<style>
+		body {
+			background-color: #F5EFEF;
+			margin: 0;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			font-family: Arial, sans-serif;
+		}
+		.container {
+			background-color: #F4E1D4;
+			border-radius: 10px;
+			padding: 50px;
+			box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+		}
+		h1 {
+			text-align: center;
+			color: #515A5A;
+			font-size: 3.5em;
+			margin-bottom: 60px;
+            margin-top: 2px;
+		}
+		input[type="text"] {
+			width: 100%;
+			margin-bottom: 30px;
+			padding: 10px;
+			font-size: 2.2em;
+			border: none;
+			border-radius: 5px;
+			box-shadow: 0 1px 2px rgba(0, 0, 0, 0.07), 0 1px 3px rgba(0, 0, 0, 0.1);
+		}
+		button {
+			background-color: #FFB6B9;
+			border: none;
+			color: #FFF;
+			padding: 10px 20px;
+			font-size: 2.2em;
+			border-radius: 5px;
+			cursor: pointer;
+            margin-right: 10px;
+            margin-left: 10px;
+            margin-top: 20px;
+			transition: background-color 0.3s ease;
+		}
+		button:hover {
+			background-color: #FF8F8F;
+		}
+		.result {
+			font-size: 3em;
+			font-weight: bold;
+			text-align: center;
+			margin-top: 20px;
+			margin-bottom: 5px;
+			color: #515A5A;
+		}
+	</style>
+</head>
+<script>
+    // callAPI function that takes the base and exponent numbers as parameters
+    var callAPI = (num1,num2,operator)=>{
+        // instantiate a headers object
+        var myHeaders = new Headers();
+        // add content type header to object
+        myHeaders.append("Content-Type", "application/json");
+        // using built in JSON utility package turn object to string and store in a variable
+        var raw = JSON.stringify({"num1":num1,"num2":num2,"operator":operator});
+        // create a JSON object with parameters for API call and store in a variable
+        var requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: raw,
+            redirect: 'follow'
+        };
+        // make API call with parameters and use promises to get response
+        fetch("https://4vadjbrbmj.execute-api.eu-north-1.amazonaws.com/dev", requestOptions)
+        .then(response => response.text())
+        .then(result => document.getElementById('result').innerHTML = JSON.parse(result).body)
+        .catch(error => console.log('error', error));
+    }
+</script>
+
+<body>
+	<div class="container">
+		<h1>Calculator</h1>
+		<form>
+			<input type="text" id="num1" placeholder="Enter first number">
+			<input type="text" id="num2" placeholder="Enter second number">
+			<div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+
+				<!-- <button type="button" id="add">+</button> -->
+
+				<button type="button" id="add" onclick="callAPI(document.getElementById('num1').value,document.getElementById('num2').value,'+')">+</button>
+				<button type="button" id="subtract" onclick="callAPI(document.getElementById('num1').value,document.getElementById('num2').value,'-')">-</button>
+				<button type="button" id="multiply" onclick="callAPI(document.getElementById('num1').value,document.getElementById('num2').value,'*')">*</button>
+				<button type="button" id="divide" onclick="callAPI(document.getElementById('num1').value,document.getElementById('num2').value,'/')">/</button>
+                <button type="button" id="power" onclick="callAPI(document.getElementById('num1').value,document.getElementById('num2').value,'^')">^</button>
+                <button type="button" id="modulus" onclick="callAPI(document.getElementById('num1').value,document.getElementById('num2').value,'%')">%</button>
+                <button type="button" id="root" onclick="callAPI(document.getElementById('num1').value,document.getElementById('num2').value,'root')">√</button>
+                <button type="button" id="log" onclick="callAPI(document.getElementById('num1').value,document.getElementById('num2').value,'log')">log</button>
+                <button type="button" id="npr" onclick="callAPI(document.getElementById('num1').value,document.getElementById('num2').value,'npr')">nPr</button>
+                <button type="button" id="ncr" onclick="callAPI(document.getElementById('num1').value,document.getElementById('num2').value,'ncr')">nCr</button>
+			</div>
+			<div class="result" id="result"></div>
+		</form>
+	</div>
+  
+</body>
+</html>
+
+
+
+
+
