@@ -2,17 +2,18 @@
 
 This project is a fully functional Engineering Calculator that performs both arithmetic and scientific calculations. The frontend is built using HTML, CSS, and JavaScript, while the backend leverages AWS services for computation and data storage. The website is hosted on Vercel for seamless accessibility.
 
-## Technologies Used
-Frontend: HTML, CSS, JavaScript
+## Amazon Web Services Used:
 
-Backend:
+* AWS API Gateway: Routes HTTP requests to the Lambda function.
+* AWS Lambda: Executes serverless code for arithmetic and scientific calculations.
+* AWS DynamoDB: A NoSQL database used to store and retrieve calculation results.
+* AWS IAM: Manages permissions and access control across AWS services.
+* Vercel: Hosting
 
-AWS API Gateway: Routes HTTP requests to the Lambda function.
+## Project Workflow
 
-AWS Lambda: Executes serverless code for arithmetic and scientific calculations.
-
-AWS DynamoDB: A NoSQL database used to store and retrieve calculation results.
-
-AWS IAM: Manages permissions and access control across AWS services.
-
-Hosting: Vercel
+* Frontend: Users input numbers and select operations via the web interface.
+* API Gateway: HTTP requests from the frontend are routed to the Lambda function.
+* Lambda Function: Performs the requested calculations (e.g., addition, subtraction, logarithms, permutations, etc.).
+* DynamoDB: Stores calculation results for future retrieval.
+* IAM: Ensures secure and controlled access to AWS resources.
