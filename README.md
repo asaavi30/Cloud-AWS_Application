@@ -20,3 +20,22 @@ This project is a fully functional Engineering Calculator that performs both ari
 
 ## Deployment
 Vercel hosting link: https://cloud-1esbdghlq-riyan1806.vercel.app/
+
+## Steps
+* Step 1: The frontend code was deployed using Vercel for building and hosting the webpage. Vercel provides a fast and reliable platform for hosting static websites.
+* Step 2: Created a new Lambda function using the Python 3.9 runtime.
+* Step 3: Replaced the default code with custom logic to perform calculations (e.g., addition, subtraction, logarithms, permutations, etc.). Used the math library in Python for advanced calculations. Tested the function using configured test events to ensure accurate results.
+* Step 4: Created a REST API and configured a POST method to invoke the Lambda function. Enabled CORS (Cross-Origin Resource Sharing) to allow frontend communication. Deployed the API to a dev stage and obtained the invoke URL.
+* Step 5: AWS DynamoDB was used to store and retrieve calculation results. Created a new table with a partition key to store calculation results. Copied the table’s ARN (Amazon Resource Name) for use in IAM policies. AWS IAM was used to grant the Lambda function permissions to access DynamoDB.
+* Step 6: Created an inline policy to allow PutItem, GetItem, Scan, and other DynamoDB actions. Attached the policy to the Lambda function’s execution role.
+* Step 7: Updated the Lambda function code to write calculation results to DynamoDB. Verified that results were successfully stored in the DynamoDB table.
+
+
+
+
+
+
+
+
+
+
