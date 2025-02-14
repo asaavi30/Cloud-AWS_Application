@@ -30,6 +30,9 @@ Vercel hosting link: https://cloud-1esbdghlq-riyan1806.vercel.app/
 * Step 6: Created an inline policy to allow PutItem, GetItem, Scan, and other DynamoDB actions. Attached the policy to the Lambda function’s execution role.
 * Step 7: Updated the Lambda function code to write calculation results to DynamoDB. Verified that results were successfully stored in the DynamoDB table.
 
+## Screenshots
+
+![Frontend Interface](screenshots/1.png)
 
 
 
