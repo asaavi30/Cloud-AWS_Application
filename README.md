@@ -35,7 +35,7 @@ Vercel hosting link: https://cloud-1esbdghlq-riyan1806.vercel.app/
 ### Frontend Interface
 ![Frontend Interface](screenshots/1.png)
 
-###Lambda function
+### Lambda function
 ![Lambda function](screenshots/2.png)
 
 
