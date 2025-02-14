@@ -103,7 +103,7 @@ Vercel hosting link: https://cloud-1esbdghlq-riyan1806.vercel.app/
 ![](screenshots/51.png)
 ![](screenshots/52.png)
 
-### Result implementation using mutilication operator
+### Result implementation using mutiplication operator
 ![](screenshots/53.png)
 
 
